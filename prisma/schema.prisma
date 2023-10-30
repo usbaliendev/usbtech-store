@@ -10,3 +10,31 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Category {
+  id       String    @id @default(uuid())
+  name     String
+  slug     String
+  imageUrl String
+  // relacao de 1 categoria pra n produtos (um array de prods)
+  products Product[]
+}
+
+model Product {
+  // seta o id padrao como um uuid aletorio
+  id                 String   @id @default(uuid())
+  name               String
+  slug               String
+  description        String
+  // seta no db que o price vai ser fromatado em 8 numeros antes da virgula e com apenas 2 decimais
+  basePrice          Decimal  @db.Decimal(8, 2)
+  // seta o disconto default como 0
+  discountPercentage Int      @default(0)
+  // o preco com disconto vai ser um valor dinamico gerado a partir de uma logica entre o preco base e o desconto
+  // no caso do prisma vou usar a funcao de CumputedFields, usando uma computation function
+  imageUrl           String
+  categoryId         String
+  // controle interno do prisma da relacao entre entidades
+  // referencia pro prisma a dependencia do id da categoria como fk da id da categoria
+  // relacao de n pra 1
+  category           Category @relation(fields: [categoryId], references: [id])
+}
