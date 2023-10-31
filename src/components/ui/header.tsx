@@ -118,16 +118,7 @@ const Header = () => {
             <Separator />
 
             <SheetDescription>Conta e Ajuda</SheetDescription>
-            {status === "unauthenticated" && (
-              <Button
-                onClick={handleLogin}
-                variant="outline"
-                className=" w-full justify-start gap-2"
-              >
-                <LogIn size={16} />
-                Login
-              </Button>
-            )}
+
             <Button variant="outline" className=" w-full justify-start gap-2">
               <ShoppingBag size={16} />
               Como comprar
@@ -136,7 +127,16 @@ const Header = () => {
               <Info size={16} />
               Developer
             </Button>
-            {status === "authenticated" && (
+            {status === "unauthenticated" ? (
+              <Button
+                onClick={handleLogin}
+                variant="outline"
+                className=" w-full justify-start gap-2"
+              >
+                <LogIn size={16} />
+                Login
+              </Button>
+            ) : status === "authenticated" ? (
               <Button
                 onClick={handleLogout}
                 variant="outline"
@@ -145,7 +145,7 @@ const Header = () => {
                 <LogOut size={16} />
                 Logout
               </Button>
-            )}
+            ) : null}
           </div>
         </SheetContent>
       </Sheet>
