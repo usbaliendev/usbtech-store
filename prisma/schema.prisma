@@ -31,7 +31,7 @@ model Product {
   discountPercentage Int      @default(0)
   // o preco com disconto vai ser um valor dinamico gerado a partir de uma logica entre o preco base e o desconto
   // no caso do prisma vou usar a funcao de CumputedFields, usando uma computation function
-  imageUrl           String
+  imageUrls          String[]
   categoryId         String
   // controle interno do prisma da relacao entre entidades
   // referencia pro prisma a dependencia do id da categoria como fk da id da categoria
