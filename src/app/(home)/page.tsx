@@ -1,13 +1,38 @@
-"use client";
+import { useSession } from "next-auth/react";
+import { prismaClient } from "@/lib/prisma";
+
 import Categories from "./components/categories";
 import PromoBanner from "./components/promo-banner";
 import Image from "next/image";
 import Link from "next/link";
+import ProductList from "@/components/ui/product-list";
+import SectionTitle from "@/components/ui/section-title";
 
-import { useSession } from "next-auth/react";
+export default async function Home() {
+  const deals = await prismaClient.product.findMany({
+    where: {
+      discountPercentage: {
+        gt: 0,
+      },
+    },
+  });
 
-export default function Home() {
-  const { data } = useSession();
+  const keyboards = await prismaClient.product.findMany({
+    where: {
+      category: {
+        slug: "keyboards",
+      },
+    },
+  });
+
+  const mouses = await prismaClient.product.findMany({
+    where: {
+      category: {
+        slug: "mouses",
+      },
+    },
+  });
+
   return (
     <>
       <div className="mx-auto flex flex-col gap-8 py-8 lg:container lg:gap-10">
@@ -21,8 +46,14 @@ export default function Home() {
             alt="Ate 55% de desconto esse mês!"
           />
         </div>
+
         <div className="px-5 lg:mt-2">
           <Categories />
+        </div>
+
+        <div className="flex flex-col gap-3 lg:gap-5">
+          <SectionTitle className="pl-5">Ofertas</SectionTitle>
+          <ProductList products={deals} />
         </div>
       </div>
     </>
