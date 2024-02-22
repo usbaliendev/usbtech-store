@@ -33,10 +33,10 @@ model Product {
   // no caso do prisma vou usar a funcao de CumputedFields, usando uma computation function
   imageUrls          String[]
   categoryId         String
+  category           Category @relation(fields: [categoryId], references: [id])
   // controle interno do prisma da relacao entre entidades
   // referencia pro prisma a dependencia do id da categoria como fk da id da categoria
   // relacao de n pra 1
-  category           Category @relation(fields: [categoryId], references: [id])
 }
 
 model Account {
