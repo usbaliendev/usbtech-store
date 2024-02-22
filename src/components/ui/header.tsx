@@ -43,9 +43,9 @@ const Header = () => {
   };
 
   return (
-    <Card className="flex items-center justify-between p-[1.875rem]">
+    <Card className="flex h-full items-center justify-between p-[1.875rem]">
       <Sheet>
-        <SheetTrigger>
+        <SheetTrigger asChild>
           <Button size="icon" variant="outline">
             <MenuIcon />
           </Button>
@@ -54,26 +54,9 @@ const Header = () => {
           <SheetHeader className=" mb-2 text-left text-lg font-semibold">
             <SheetTitle>Menu</SheetTitle>
           </SheetHeader>
-          {status === "authenticated" && data?.user && (
-            <div className="flex flex-col">
-              <div className="mb-2 flex items-center gap-2">
-                <Avatar>
-                  <AvatarFallback>
-                    {data.user.name?.[0].toUpperCase()}
-                  </AvatarFallback>
-                  {data.user.image && <AvatarImage src={data.user.image} />}
-                </Avatar>
-                <div className="flex flex-col">
-                  <p className="font-medium">{data.user.name}</p>
-                  <p className="text-sm opacity-75">Boas compras!</p>
-                </div>
-              </div>
-              <Separator />
-            </div>
-          )}
 
           <SheetDescription>Site</SheetDescription>
-          <div className="mt-2 flex flex-col gap-2">
+          <div className="mt-2 flex h-[90%] flex-col gap-2">
             <Button variant="outline" className=" w-full justify-start gap-2">
               <HomeIcon size={16} />
               Início
@@ -127,31 +110,44 @@ const Header = () => {
               <Info size={16} />
               Developer
             </Button>
-            {status === "unauthenticated" ? (
-              <Button
-                onClick={handleLogin}
-                variant="outline"
-                className=" w-full justify-start gap-2"
-              >
-                <LogIn size={16} />
-                Login
-              </Button>
-            ) : status === "authenticated" ? (
+          </div>
+
+          {status === "authenticated" && data?.user ? (
+            <div className="flex w-full flex-row items-center justify-between">
+              <div className="mb-2 flex items-center gap-2">
+                <Avatar>
+                  <AvatarFallback>
+                    {data.user.name?.[0].toUpperCase()}
+                  </AvatarFallback>
+                  {data.user.image && <AvatarImage src={data.user.image} />}
+                </Avatar>
+                <div className="flex flex-col">
+                  <p className="font-medium">{data.user.name}</p>
+                  <p className="text-sm opacity-75">Boas compras!</p>
+                </div>
+              </div>
               <Button
                 onClick={handleLogout}
                 variant="outline"
-                className=" w-full justify-start gap-2"
+                className=" justify-center gap-2"
               >
                 <LogOut size={16} />
                 Logout
               </Button>
-            ) : null}
-          </div>
+            </div>
+          ) : (
+            <div className="flex w-full justify-end">
+              <Button onClick={handleLogin} variant="outline" className="gap-2">
+                <LogIn size={16} />
+                Login
+              </Button>
+            </div>
+          )}
         </SheetContent>
       </Sheet>
 
       <h1 className="text-lg font-semibold">
-        <span className="text-primary">Kayden7</span> Store
+        <span className="font-extrabold text-primary">Tech</span> Store
       </h1>
 
       <Button size="icon" variant="outline">
