@@ -1,5 +1,7 @@
 import { Prisma, PrismaClient } from "@prisma/client";
 
+// Previne conexao com o banco a cada reload q ocorrer
+
 declare global {
   var cachedPrisma: PrismaClient;
 }
