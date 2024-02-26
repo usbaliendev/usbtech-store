@@ -16,6 +16,7 @@ import { Button } from "./button";
 import { Card } from "./card";
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetDescription,
   SheetHeader,
@@ -23,14 +24,10 @@ import {
   SheetTrigger,
 } from "./sheet";
 import { Separator } from "./separator";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "./accordion";
+
 import { signIn, signOut, useSession } from "next-auth/react";
 import { Avatar, AvatarFallback, AvatarImage } from "./avatar";
+import Link from "next/link";
 
 const Header = () => {
   const { status, data } = useSession();
@@ -56,47 +53,35 @@ const Header = () => {
           </SheetHeader>
 
           <SheetDescription>Site</SheetDescription>
+
           <div className="mt-2 flex h-[90%] flex-col gap-2">
-            <Button variant="outline" className=" w-full justify-start gap-2">
-              <HomeIcon size={16} />
-              Início
-            </Button>
+            <SheetClose asChild>
+              <Link href="/">
+                <Button
+                  variant="outline"
+                  className=" w-full justify-start gap-2"
+                >
+                  <HomeIcon size={16} />
+                  Início
+                </Button>
+              </Link>
+            </SheetClose>
+
             <Button variant="outline" className=" w-full justify-start gap-2">
               <PercentIcon size={16} />
               Ofertas
             </Button>
 
-            <Accordion type="single" collapsible className="w-full">
-              <AccordionItem value="item-1">
-                <Button variant="outline" className=" w-full justify-start">
-                  <AccordionTrigger className=" gap-52">
-                    <div className=" flex gap-2">
-                      <ListOrdered size={16} />
-                      Catálogo
-                    </div>
-                  </AccordionTrigger>
-                </Button>
-                <AccordionContent>
-                  <div>
-                    <Button
-                      variant="outline"
-                      className=" mb-1 w-full justify-start"
-                    >
-                      Hardware
-                    </Button>
-                    <Button
-                      variant="outline"
-                      className=" mb-1 w-full justify-start"
-                    >
-                      Periféricos
-                    </Button>
-                    <Button variant="outline" className=" w-full justify-start">
-                      Monitores
-                    </Button>
+            <Button variant="outline" className="flex w-full justify-start">
+              <SheetClose asChild>
+                <Link href="/catalogo" className="w-full">
+                  <div className="flex gap-2">
+                    <ListOrdered size={16} />
+                    Catálogo
                   </div>
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
+                </Link>
+              </SheetClose>
+            </Button>
 
             <Separator />
 
