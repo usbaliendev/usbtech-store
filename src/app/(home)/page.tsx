@@ -7,7 +7,6 @@ import Image from "next/image";
 import Link from "next/link";
 import ProductList from "@/components/ui/product-list";
 import SectionTitle from "@/components/ui/section-title";
-import Footer from "./components/footer";
 
 export default async function Home() {
   const deals = await prismaClient.product.findMany({
@@ -80,8 +79,6 @@ export default async function Home() {
           <SectionTitle className="pl-5">Teclados</SectionTitle>
           <ProductList products={keyboards} />
         </div>
-
-        <Footer />
       </div>
     </>
   );

@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/ui/header";
 import { AuthProvider } from "@/providers/auth";
 import { ThemeProvider } from "@/components/theme-provider";
+import Footer from "../components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,19 +21,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="flex h-full flex-col">
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="flex h-full flex-col">
             <AuthProvider>
               <Header />
-              <div className="flex-1">{children}</div>
+              <div className="flex-1 ">{children}</div>
+              <Footer />
             </AuthProvider>
-          </ThemeProvider>
-        </div>
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );
