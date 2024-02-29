@@ -131,12 +131,14 @@ const Header = () => {
         </SheetContent>
       </Sheet>
 
-      <h1 className="text-lg font-semibold">
-        <span className="inline-block bg-gradient-to-r from-primary to-secondary-foreground bg-clip-text font-extrabold text-transparent">
-          USBK777
-        </span>{" "}
-        Store
-      </h1>
+      <Link href="/">
+        <h1 className="text-lg font-semibold">
+          <span className="inline-block bg-gradient-to-r from-primary to-secondary-foreground bg-clip-text font-extrabold text-transparent">
+            USBK777
+          </span>{" "}
+          Store
+        </h1>
+      </Link>
 
       <Button size="icon" variant="outline">
         <ShoppingCartIcon />
