@@ -31,7 +31,7 @@ export default function RootLayout({
             <AuthProvider>
               <Header />
               <div className="flex-1">{children}</div>
-              {/* <Footer /> */}
+              <Footer />
             </AuthProvider>
           </div>
         </ThemeProvider>
