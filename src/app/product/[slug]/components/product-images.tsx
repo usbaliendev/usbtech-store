@@ -31,7 +31,7 @@ const ProductImages = ({ imageUrls, name }: ProductImagesProps) => {
       </div>
 
       {/* BOTOES COM AS OUTRAS IMAGENS */}
-      <div className="mt-8 grid grid-cols-4 gap-4">
+      <div className="mt-4 grid grid-cols-4 gap-4">
         {imageUrls.map((imageUrl) => (
           <button
             key={imageUrl}
