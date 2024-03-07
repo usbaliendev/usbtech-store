@@ -72,7 +72,7 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
       </div>
 
       <Button
-        className="w-full justify-center rounded-md bg-primary py-2 font-bold uppercase tracking-wider"
+        className="w-full justify-center rounded-md bg-primary py-2 font-bold uppercase tracking-wider text-foreground"
         onClick={handleAddToCartClick}
       >
         Adicionar ao Carrinho

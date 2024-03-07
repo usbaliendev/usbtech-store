@@ -1,14 +1,6 @@
 import { ShoppingCartIcon } from "lucide-react";
 import { Button } from "./button";
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "./sheet";
+import { Sheet, SheetContent, SheetTrigger } from "./sheet";
 import Cart from "./cart";
 
 const CartSheet = () => {
