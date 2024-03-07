@@ -10,7 +10,6 @@ interface ProductItemProps {
 }
 
 const ProductItem = ({ product, className }: ProductItemProps) => {
-  // console.log(product)
   return (
     <Link
       href={`/product/${product.slug}`}

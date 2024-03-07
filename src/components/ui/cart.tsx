@@ -12,9 +12,21 @@ import { Separator } from "./separator";
 import { AlertCircle } from "lucide-react";
 import { computeProductTotalPrice } from "@/helpers/product";
 import { ScrollArea } from "./scroll-area";
+import { CreateCheckout } from "@/actions/checkout";
+import { loadStripe } from "@stripe/stripe-js";
 
 const Cart = () => {
   const { products, total, subTotal, totalDiscount } = useContext(CartContext);
+  const handleFinishPurchase = async () => {
+    const checkout = await CreateCheckout(products);
+
+    const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
+
+    stripe?.redirectToCheckout({
+      sessionId: checkout.id,
+    });
+  };
+
   return (
     <div className="flex h-full flex-col space-y-6">
       <SheetHeader className="text-left text-lg font-semibold">
@@ -63,7 +75,11 @@ const Cart = () => {
             </div>
           </div>
 
-          <Button variant="default" className="mt-4 w-full text-foreground">
+          <Button
+            variant="default"
+            className="mt-4 w-full"
+            onClick={handleFinishPurchase}
+          >
             Finalizar compra
           </Button>
         </div>
