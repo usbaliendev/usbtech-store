@@ -65,6 +65,7 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
   };
   
   const decreaseProductQuantity = (productId: string) => {
+    // se a quantidade for 1 remover produto
     setProducts((prev) =>
       prev
         .map((cartProduct) => {
