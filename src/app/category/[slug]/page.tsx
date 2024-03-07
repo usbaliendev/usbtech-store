@@ -15,6 +15,8 @@ const CategoryProducts = async ({ params }: any) => {
 
   if (!category) return null;
 
+  console.log(category)
+
   return (
     <div className="flex flex-col gap-8 p-5">
       <PageBadge name={category.name} slug={params.slug} />
@@ -23,7 +25,7 @@ const CategoryProducts = async ({ params }: any) => {
         {category.products.map((product) => (
           <ProductItem
             key={product.id}
-            product={computeProductTotalPrice(product)}
+            product={computeProductTotalPrice(product as any) as any}
           />
         ))}
       </div>

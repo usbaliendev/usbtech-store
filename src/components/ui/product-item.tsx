@@ -10,6 +10,7 @@ interface ProductItemProps {
 }
 
 const ProductItem = ({ product, className }: ProductItemProps) => {
+  // console.log(product)
   return (
     <Link
       href={`/product/${product.slug}`}
@@ -17,7 +18,7 @@ const ProductItem = ({ product, className }: ProductItemProps) => {
     >
       <div className="relative flex aspect-square w-full items-center justify-center rounded-lg bg-accent">
         <Image
-          src={product.imageUrls[1]}
+          src={product.imageUrls[0]}
           alt={product.name}
           height={0}
           width={0}
