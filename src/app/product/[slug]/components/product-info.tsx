@@ -63,15 +63,7 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
 
       <div className="flex flex-col gap-2">
         <h3 className="font-bold">Descrição</h3>
-        <p className="text-justify text-sm opacity-60">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo suscipit
-          qui laborum facilis cupiditate labore sunt maxime minus! Accusantium
-          ex temporibus consequatur culpa id itaque commodi. <br />
-          <br />
-          Adipisci libero unde nesciunt? Voluptas, quas architecto quaerat
-          minus, cum perferendis in tenetur nesciunt asperiores impedit nihil
-          necessitatibus fugiat hic labore expedita! Doloremque, tempora.
-        </p>
+        <p className="text-justify text-sm opacity-60">{product.description}</p>
       </div>
 
       <Button className="w-full justify-center rounded-md bg-primary py-2 font-bold uppercase tracking-wider">
