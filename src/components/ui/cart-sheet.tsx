@@ -11,6 +11,7 @@ const CartSheet = () => {
           <ShoppingCartIcon />
         </Button>
       </SheetTrigger>
+      
       <SheetContent side="right">
         <Cart />
       </SheetContent>

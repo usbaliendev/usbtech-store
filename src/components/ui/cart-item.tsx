@@ -44,9 +44,9 @@ const CartItem = ({ product }: CartItemProps) => {
         <div className="flex flex-col">
           <p className="text-xs">{product.name}</p>
           <div className="flex items-center gap-2">
-            <p className="text-sm font-bold">R$ {product.totalPrice}</p>
+            <p className="text-sm font-bold">R$ {product.totalPrice.toFixed(2)}</p>
             <h3 className="text-xs line-through opacity-75">
-              R$ {product.totalPrice}
+              R$ {product.totalPrice.toFixed(2)}
             </h3>
           </div>
         </div>

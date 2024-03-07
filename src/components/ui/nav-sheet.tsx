@@ -13,7 +13,6 @@ import {
   Info,
 } from "lucide-react";
 import { Separator } from "@radix-ui/react-separator";
-import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import { Button } from "./button";
 import {
   Sheet,
@@ -26,6 +25,7 @@ import {
 } from "./sheet";
 import Link from "next/link";
 import { signIn, signOut, useSession } from "next-auth/react";
+import { Avatar, AvatarFallback, AvatarImage } from "./avatar";
 
 interface NavSheetProps {
   data: object;
@@ -50,14 +50,13 @@ const NavSheet = () => {
           <MenuIcon />
         </Button>
       </SheetTrigger>
-      <SheetContent side="left">
+      <SheetContent side="left" className="flex h-full flex-col">
         <SheetHeader className=" mb-2 text-left text-lg font-semibold">
           <SheetTitle>Menu</SheetTitle>
         </SheetHeader>
 
-        <SheetDescription>Site</SheetDescription>
-
-        <div className="mt-2 flex h-[90%] flex-col gap-2">
+        <div className="flex flex-1 flex-col gap-2">
+          <SheetDescription>Site</SheetDescription>
           <SheetClose asChild>
             <Link href="/">
               <Button variant="outline" className=" w-full justify-start gap-2">
@@ -99,7 +98,7 @@ const NavSheet = () => {
 
         {status === "authenticated" && data?.user ? (
           <div className="flex w-full flex-row items-center justify-between">
-            <div className="mb-2 flex items-center gap-2">
+            <div className="flex items-center gap-2">
               <Avatar>
                 <AvatarFallback>
                   {data.user.name?.[0].toUpperCase()}
