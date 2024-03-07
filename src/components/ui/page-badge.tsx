@@ -1,6 +1,6 @@
 import React from "react";
 import { Badge } from "./badge";
-import { LayoutGrid } from "lucide-react";
+import { LayoutGrid, ShoppingCartIcon } from "lucide-react";
 import { CategoryIcon } from "@/constants/category-icons";
 
 interface PageBadgeProps {
@@ -16,6 +16,8 @@ const PageBadge = ({ name, slug }: PageBadgeProps) => {
     >
       {slug ? (
         <>{CategoryIcon[slug as keyof typeof CategoryIcon]}</>
+      ) : name === "Carrinho" ? (
+        <ShoppingCartIcon size={16} />
       ) : (
         <LayoutGrid size={16} />
       )}
