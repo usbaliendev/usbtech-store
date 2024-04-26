@@ -39,6 +39,21 @@ model Product {
   // relacao de n pra 1
 }
 
+model Order {
+  id        String    @id @default(cuid())
+  // Add other fields related to the order
+  orderProducts ProductOrder[]
+}
+
+model ProductOrder {
+  id       String   @id @default(cuid())
+  quantity Int
+  // Add other fields related to the product order
+  order    Order    @relation(fields: [orderId], references: [id])
+  orderId  String
+  // product  Product  @relation(references: [id])
+}
+
 model Account {
   id                String  @id @default(cuid())
   userId            String
@@ -83,3 +98,4 @@ model VerificationToken {
 
   @@unique([identifier, token])
 }
+ 
