@@ -58,12 +58,17 @@ const NavSheet = () => {
         <div className="flex flex-1 flex-col gap-2">
           <SheetDescription>Site</SheetDescription>
           <SheetClose asChild>
-            <Link href="/">
-              <Button variant="outline" className=" w-full justify-start gap-2">
-                <HomeIcon size={16} />
-                Início
-              </Button>
-            </Link>
+            <>
+              <Link href="/">
+                <Button
+                  variant="outline"
+                  className=" w-full justify-start gap-2"
+                >
+                  <HomeIcon size={16} />
+                  Início
+                </Button>
+              </Link>
+            </>
           </SheetClose>
 
           <Button variant="outline" className=" w-full justify-start gap-2">
@@ -73,27 +78,34 @@ const NavSheet = () => {
 
           <Button variant="outline" className="flex w-full justify-start">
             <SheetClose asChild>
-              <Link href="/catalogo" className="w-full">
-                <div className="flex gap-2">
-                  <ListOrdered size={16} />
-                  Catálogo
-                </div>
-              </Link>
+              <>
+                <Link href="/catalogo" className="w-full">
+                  <div className="flex gap-2">
+                    <ListOrdered size={16} />
+                    Catálogo
+                  </div>
+                </Link>
+              </>
             </SheetClose>
           </Button>
 
           <Separator />
 
-          <SheetDescription>Conta e Ajuda</SheetDescription>
-
-          <Button variant="outline" className=" w-full justify-start gap-2">
-            <ShoppingBag size={16} />
-            Como comprar
-          </Button>
-          <Button variant="outline" className=" w-full justify-start gap-2">
-            <Info size={16} />
-            Developer
-          </Button>
+          <SheetDescription>More</SheetDescription>
+          <a
+            target="_blank"
+            href="https://usbaliendev.com"
+            className="w-full"
+            rel="noopener noreferrer"
+          >
+            {/*since is an external link we should use an a element // also use
+            rel="noopener noreferrer" to prevent the newly opened tab from being
+            able to modify the original tab maliciously */}
+            <Button variant="outline" className=" w-full justify-start gap-2">
+              <Info size={16} />
+              Developer
+            </Button>
+          </a>
         </div>
 
         {status === "authenticated" && data?.user ? (
