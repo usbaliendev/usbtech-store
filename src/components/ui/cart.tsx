@@ -13,6 +13,8 @@ import { AlertCircle } from "lucide-react";
 import { computeProductTotalPrice } from "@/helpers/product";
 import { ScrollArea } from "./scroll-area";
 import { CreateCheckout } from "@/actions/checkout";
+
+
 import { loadStripe } from "@stripe/stripe-js";
 
 const Cart = () => {
