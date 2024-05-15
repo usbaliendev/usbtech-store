@@ -6,6 +6,7 @@ import { AuthProvider } from "@/providers/auth";
 import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "../components/ui/footer";
 import CartProvider from "@/providers/cart";
+import { CartBadge } from "@/components/ui/cart-badge";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,6 +34,7 @@ export default function RootLayout({
               <CartProvider>
                 <Header />
                 <div className="flex-1">{children}</div>
+                <CartBadge />
                 <Footer />
               </CartProvider>
             </AuthProvider>
