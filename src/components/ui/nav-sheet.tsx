@@ -58,7 +58,6 @@ const NavSheet = () => {
         <div className="flex flex-1 flex-col gap-2">
           <SheetDescription>Site</SheetDescription>
           <SheetClose asChild>
-            <>
               <Link href="/">
                 <Button
                   variant="outline"
@@ -68,24 +67,27 @@ const NavSheet = () => {
                   Início
                 </Button>
               </Link>
-            </>
           </SheetClose>
 
-          <Button variant="outline" className=" w-full justify-start gap-2">
-            <PercentIcon size={16} />
-            Ofertas
+          <Button variant="outline" className="flex w-full justify-start">
+            <SheetClose asChild>
+              <Link href="/ofertas" className="w-full">
+                <div className="flex gap-2">
+                  <PercentIcon size={16} />
+                  Ofertas
+                </div>
+              </Link>
+            </SheetClose>
           </Button>
 
           <Button variant="outline" className="flex w-full justify-start">
             <SheetClose asChild>
-              <>
                 <Link href="/catalogo" className="w-full">
                   <div className="flex gap-2">
                     <ListOrdered size={16} />
                     Catálogo
                   </div>
                 </Link>
-              </>
             </SheetClose>
           </Button>
 

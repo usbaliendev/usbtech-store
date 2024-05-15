@@ -14,7 +14,7 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
   const [quantity, setQuantity] = useState(1);
   const { addProductToCart } = useContext(CartContext);
 
-  const handleDescreaseQuantity = () => {
+  const handleDecreaseQuantity = () => {
     setQuantity((prev) => (prev === 1 ? prev : prev - 1));
   };
   const handleIncreaseQuantity = () => {
@@ -55,7 +55,7 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
       </div>
 
       <div className="flex items-center gap-2">
-        <Button size="icon" variant="outline" onClick={handleDescreaseQuantity}>
+        <Button size="icon" variant="outline" onClick={handleDecreaseQuantity}>
           <ArrowLeftIcon size={16} />
         </Button>
 
