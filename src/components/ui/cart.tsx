@@ -14,7 +14,6 @@ import { computeProductTotalPrice } from "@/helpers/product";
 import { ScrollArea } from "./scroll-area";
 import { CreateCheckout } from "@/actions/checkout";
 
-
 import { loadStripe } from "@stripe/stripe-js";
 
 const Cart = () => {
@@ -30,7 +29,7 @@ const Cart = () => {
   };
 
   return (
-    <div className="flex h-full flex-col space-y-6">
+    <div className="flex h-full flex-col space-y-6 ">
       <SheetHeader className="text-left text-lg font-semibold">
         <SheetTitle>
           <PageBadge name="Carrinho" />
@@ -86,7 +85,7 @@ const Cart = () => {
           </Button>
         </div>
       ) : (
-        <div className="flex flex-1 flex-col items-center justify-center text-sm">
+        <div className="flex flex-1 flex-col items-center justify-center gap-3 text-sm ">
           <div className="flex items-center gap-3">
             <AlertCircle />
             <p>Carrinho vazio!</p>
