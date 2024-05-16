@@ -12,10 +12,7 @@ const CategoryProducts = async ({ params }: any) => {
       products: true,
     },
   });
-
   if (!category) return null;
-
-  console.log(category)
 
   return (
     <div className="flex flex-col gap-8 p-5">
@@ -25,7 +22,10 @@ const CategoryProducts = async ({ params }: any) => {
         {category.products.map((product) => (
           <ProductItem
             key={product.id}
-            product={computeProductTotalPrice(product as any) as any}
+            product={{
+              ...product,
+              totalPrice: computeProductTotalPrice(product),
+            }}
           />
         ))}
       </div>
