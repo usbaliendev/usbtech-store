@@ -26,7 +26,7 @@ export const CartBadge = () => {
             <SheetTrigger asChild>
               <Button size="icon" variant="outline" className="border-2">
                 <ShoppingCartIcon />
-                <Badge className="absolute -right-1 -top-1 rounded-full px-1 py-[0.5] text-xs text-white">
+                <Badge className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full text-xs font-bold">
                   {products.length}
                 </Badge>
               </Button>
